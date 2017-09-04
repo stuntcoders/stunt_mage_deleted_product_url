@@ -6,3 +6,4 @@ All notable changes to this project will be documented in this file.
 - Module
 - Git ignore file
 - Change log file
+- Readme file
