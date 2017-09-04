@@ -6,22 +6,22 @@ When deleting product all URL paths to that product will also be deleted. So whe
 
 By default when new product is added magento creates system rewrites for that product. They can be seen and changed in URL Rewrite Management. For examample if we create test-product with test-categorie, magento will create 2 rewrites:
 
-1. 	Request Path: test-product, 
-	Target Path: catalog/product/view/id/(test-product_id), 
+1. 	Request Path: test-product, <br/>
+	Target Path: catalog/product/view/id/(test-product_id), <br/>
 	Id Path: product/(test-product_id)
 
-2. 	Request Path: test-categorie/test-product, 
-	Target Path: catalog/product/view/id/(test-product_id)/category/test-categorie/(test-categorie_id), 
+2. 	Request Path: test-categorie/test-product, <br/>
+	Target Path: catalog/product/view/id/(test-product_id)/category/test-categorie/(test-categorie_id), <br/>
 	Id Path: product/(test-product_id)/(test-categorie_id)
 
 Main part of the module is observer. Observer method triggers on 'catalog_product_delete_before'. When product is deleted it's rewrites are also deleted, so above rewrites will be removed. Observer method creates new rewrites with same Request Paths as before. So 2 rewrites would be made:
 
-1. 	Request Path: test-product, 
-	Target Path: test-categorie, 
+1. 	Request Path: test-product, <br/>
+	Target Path: test-categorie, <br/>
 	Id Path: sc-old-product-test-product-(test-product_id)
 
-2. 	Request Path: test-categorie/test-product, 
-	Target Path: test-categorie, 
+2. 	Request Path: test-categorie/test-product, <br/>
+	Target Path: test-categorie, <br/>
 	Id Path: sc-old-product-test-product-(test-product_id)-(test-categorie_id)
 
 In first rewrite, Request Path have no categorie in it so it's Targe Path will be first of product's categories (if there are more).
