@@ -7,3 +7,4 @@ All notable changes to this project will be documented in this file.
 - Git ignore file
 - Change log file
 - Readme file
+- Modman file
